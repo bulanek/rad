@@ -105,6 +105,9 @@ if __name__=='__main__':
                         outputFileName=outputFileNameTmp
                         outputFile.close()
                         outputFile=open(outputFileName,'a')
+                        # header vystupneho suboru
+                        outputFile.write('Date,Realtime clock, Counts, CPM, uSv/h, corr_CPM, corr_doserate, eCorr_doserate\n')
+
                 time.sleep(INTEGRATION_TIME)
                 status=h.get_feature_report(0,129)
                 clock=status[1]+status[2]*256+status[3]*256*256
@@ -120,9 +123,8 @@ if __name__=='__main__':
                 print("Corrected %g CPM,  %g+-%g mikroSv/h" % (CPM,CPM/171.2,std/171.2))
 
 # vystup do suboru
-                outputFile.write("Realtime clock: %gs, Counts: %d \n" % ((clock/1000.0), counts))
-                outputFile.write("%g CPM,  %g mikroSv/h\n" % (cpm,cpm/171.2))
-                outputFile.write("Corrected %g CPM,  %g+-%g mikroSv/h\n" % (CPM,CPM/171.2,std/171.2))
+                outputFile.write('{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}\n'.format(time.strftime(time.asctime(time.localtime())),\
+ (clock/1000.0), counts,cpm,cpm/171.2,CPM,CPM/171.2,std/171.2))
                 outputFile.flush()
 
         except KeyboardInterrupt as e:
