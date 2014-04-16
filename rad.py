@@ -110,6 +110,15 @@ if __name__=='__main__':
 
                 time.sleep(INTEGRATION_TIME)
                 status=h.get_feature_report(0,129)
+                if len(status)<=8:
+                        print("Something wrong with getting info from the device!!")
+                        print("Trying to reopen selected device")
+                        h = hid.device()
+                        h.open(0x4d8, 0xf6fe)
+                        status=h.get_feature_report(0,129)
+                        continue
+
+
                 clock=status[1]+status[2]*256+status[3]*256*256
                 counts=status[5]+status[6]*256+status[7]*256*256
                 print("Realtime clock: %gs, Counts: %d" % ((clock/1000.0), counts))
@@ -123,7 +132,7 @@ if __name__=='__main__':
                 print("Corrected %g CPM,  %g+-%g mikroSv/h" % (CPM,CPM/171.2,std/171.2))
 
 # vystup do suboru
-                outputFile.write('{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}\n'.format(time.strftime(time.asctime(time.localtime())),\
+                outputFile.write('{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}\n'.format(time.asctime(time.localtime())),\
  (clock/1000.0), counts,cpm,cpm/171.2,CPM,CPM/171.2,std/171.2))
                 outputFile.flush()
 
