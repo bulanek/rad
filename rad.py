@@ -87,7 +87,6 @@ if __name__=='__main__':
         status=h.get_feature_report(0,129)
         print("Status: {}".format(status))
         if status:
-                print(status)
                 clock=status[1]+status[2]*256+status[3]*256*256
                 print("Realtime clock: %gs" % (clock/1000.0))
                 counts=status[5]+status[6]*256+status[7]*256*256
@@ -129,8 +128,8 @@ if __name__=='__main__':
                 print("Corrected %g CPM,  %g+-%g mikroSv/h" % (CPM,CPM/171.2,std/171.2))
 
 # vystup do suboru
-                outputFile.write('{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}\n'.format(time.asctime(time.localtime())),\
- (clock/1000.0), counts,cpm,cpm/171.2,CPM,CPM/171.2,std/171.2))
+                outputFile.write('{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}\n'.format(time.asctime(time.localtime()),\
+(clock/1000.0), counts,cpm,cpm/171.2,CPM,CPM/171.2,std/171.2))
                 outputFile.flush()
 
         except KeyboardInterrupt as e:

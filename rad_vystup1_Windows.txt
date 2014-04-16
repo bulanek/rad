@@ -1,0 +1,49 @@
+﻿Python 2.7.6 (default, Nov 10 2013, 19:24:18) [MSC v.1500 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> ================================ RESTART ================================
+>>> 
+==============================
+Radiactive At Home Test Script
+==========atoms.eu============
+
+Show you all the HID devices of your PC
+interface_number : -1
+manufacturer_string : microchip
+path : \\?\hid#vid_04d8&pid_f6fe#7&1fdd2f13&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+product_id : 63230
+product_string : radioactiveathome.org GRS
+release_number : 769
+serial_number : Љ
+usage : 1
+usage_page : 65280
+vendor_id : 1240
+
+interface_number : -1
+manufacturer_string : A4Tech
+path : \\?\hid#vid_09da&pid_000a#7&19695f6d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+product_id : 10
+product_string : USB Mouse
+release_number : 5889
+serial_number : Љ
+usage : 2
+usage_page : 1
+vendor_id : 2522
+
+Opening selected device
+Manufacturer: microchip
+Product: radioactiveathome.org GRS
+[0, 10, 0, 0, 0, 0, 0, 0]
+Realtime clock: 0.01s
+Counts: 0
+counting - please wait
+Realtime clock: 29.94s, Counts: 6
+Realtime clock: 59.89s, Counts: 15
+Realtime clock: 89.82s, Counts: 21
+Realtime clock: 119.75s, Counts: 30
+Realtime clock: 149.69s, Counts: 38
+Realtime clock: 179.62s, Counts: 43
+14.3637 CPM,  0.0838999 mikroSv/h
+Corrected 14.3643 CPM,  0.0839039+-0.0127946 mikroSv/h
+Closing device
+Have a nice day!
+>>> 
