@@ -93,9 +93,6 @@ if __name__=='__main__':
                 counts=status[5]+status[6]*256+status[7]*256*256
                 print("Counts: %d" % counts)
                 print("counting - please wait")
-#-------------------------------------------------
-#   vytvorenie vystpuneho suboru
-#-------------------------------------------------
 
         outputFileNameTmp=outputFileName
         try:
@@ -110,7 +107,7 @@ if __name__=='__main__':
 
                 time.sleep(INTEGRATION_TIME)
                 status=h.get_feature_report(0,129)
-                if len(status)<=8:
+                if len(status)<8:
                         print("Something wrong with getting info from the device!!")
                         print("Trying to reopen selected device")
                         h = hid.device()
